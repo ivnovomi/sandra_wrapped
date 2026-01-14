@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { SlideContent } from '@/types/story';
 import { useMemo, useState } from 'react';
+import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
 
 export const GalleryExploreSlide = ({ content }: { content: SlideContent }) => {
@@ -58,12 +59,13 @@ export const GalleryExploreSlide = ({ content }: { content: SlideContent }) => {
                             onClick={() => setSelectedImageIndex(i)}
                             className="relative mb-4 md:mb-8 break-inside-avoid rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 group cursor-pointer shadow-xl ring-1 ring-white/5 active:ring-pink-500/50 transition-shadow"
                         >
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
+                            <Image
                                 src={img.src}
                                 alt={img.caption || 'Recuerdo'}
+                                width={500}
+                                height={700}
+                                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
                                 className="w-full h-auto grayscale group-hover:grayscale-0 transition-all duration-1000 ease-out"
-                                loading="lazy"
                             />
                             <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent transition-colors duration-500" />
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -134,10 +136,12 @@ export const GalleryExploreSlide = ({ content }: { content: SlideContent }) => {
                                     className="relative max-w-full md:max-w-7xl max-h-[85vh] w-full h-full flex flex-col items-center justify-center gap-6"
                                 >
                                     <div className="relative group/modal pointer-events-auto">
-                                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                                        <img
+                                        <Image
                                             src={images[selectedImageIndex].src}
                                             alt="Recuerdo expandido"
+                                            width={1200}
+                                            height={800}
+                                            priority
                                             className="max-w-full max-h-[65vh] md:max-h-[70vh] object-contain rounded-2xl md:rounded-3xl shadow-[0_0_80px_rgba(236,72,153,0.2)] border-2 md:border-4 border-white/10"
                                         />
                                         <div className="absolute -bottom-12 md:-bottom-16 left-0 right-0 text-center px-4">

@@ -3,18 +3,35 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Pause, Play, Music2 } from 'lucide-react';
+import Image from 'next/image';
 import { StoryData, SlideType } from '@/types/story';
-import { IntroSlide } from './slides/IntroSlide';
-import { BioSlide } from './slides/BioSlide';
-import { StatsSlide } from './slides/StatsSlide';
-import { OutroSlide } from './slides/OutroSlide';
-import { TimelineSlide } from './slides/TimelineSlide';
-import { GallerySlide } from './slides/GallerySlide';
-import { GalleryExploreSlide } from './slides/GalleryExploreSlide';
-import { FastLifeReviewSlide } from './slides/FastLifeReviewSlide';
-import { DedicationSlide } from './slides/DedicationSlide';
-import { DedicationsIntroSlide } from './slides/DedicationsIntroSlide';
-import DynamicBackground from './DynamicBackground';
+import dynamic from 'next/dynamic';
+
+const DynamicBackground = dynamic(() => import('./DynamicBackground'), { ssr: false });
+
+const SlideLoading = () => (
+  <div className="flex items-center justify-center w-full h-full">
+    <motion.div
+      animate={{ opacity: [0.3, 0.6, 0.3], scale: [0.98, 1, 0.98] }}
+      transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+      className="text-pink-500/30 text-xs font-black tracking-[1em] uppercase"
+    >
+      Cargando Capítulo...
+    </motion.div>
+  </div>
+);
+
+// Lazy load slides
+const IntroSlide = dynamic(() => import('./slides/IntroSlide').then(m => m.IntroSlide), { loading: SlideLoading });
+const BioSlide = dynamic(() => import('./slides/BioSlide').then(m => m.BioSlide), { loading: SlideLoading });
+const StatsSlide = dynamic(() => import('./slides/StatsSlide').then(m => m.StatsSlide), { loading: SlideLoading });
+const OutroSlide = dynamic(() => import('./slides/OutroSlide').then(m => m.OutroSlide), { loading: SlideLoading });
+const TimelineSlide = dynamic(() => import('./slides/TimelineSlide').then(m => m.TimelineSlide), { loading: SlideLoading });
+const GallerySlide = dynamic(() => import('./slides/GallerySlide').then(m => m.GallerySlide), { loading: SlideLoading });
+const GalleryExploreSlide = dynamic(() => import('./slides/GalleryExploreSlide').then(m => m.GalleryExploreSlide), { loading: SlideLoading });
+const FastLifeReviewSlide = dynamic(() => import('./slides/FastLifeReviewSlide').then(m => m.FastLifeReviewSlide), { loading: SlideLoading });
+const DedicationSlide = dynamic(() => import('./slides/DedicationSlide').then(m => m.DedicationSlide), { loading: SlideLoading });
+const DedicationsIntroSlide = dynamic(() => import('./slides/DedicationsIntroSlide').then(m => m.DedicationsIntroSlide), { loading: SlideLoading });
 
 const SlideComponents: Record<SlideType, any> = {
   intro: IntroSlide,
@@ -117,9 +134,9 @@ export default function StoryViewer({ story }: { story: StoryData }) {
                 duration: 1.5,
                 ease: [0.22, 1, 0.36, 1]
               }}
-              className="aspect-square rounded-md md:rounded-xl overflow-hidden grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-700 border border-white/5 cursor-crosshair z-0 hover:z-50 shadow-2xl"
+              className="relative aspect-square rounded-md md:rounded-xl overflow-hidden grayscale hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-700 border border-white/5 cursor-crosshair z-0 hover:z-50 shadow-2xl"
             >
-              <img src={src} alt="" className="w-full h-full object-cover" />
+              <Image src={src} alt="" fill className="object-cover" sizes="(max-width: 768px) 20vw, 10vw" />
             </motion.div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { SlideContent } from '@/types/story';
 import { Baby, Heart, Star, MapPin, Sparkles } from 'lucide-react';
 
@@ -23,11 +24,12 @@ export const BioSlide = ({ content }: { content: SlideContent }) => {
           transition={{ duration: 2 }}
           className="absolute inset-0 z-0"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={content.image}
+          <Image
+            src={content.image!}
             alt="Blur BG"
-            className="w-full h-full object-cover blur-3xl scale-110"
+            fill
+            quality={10}
+            className="object-cover blur-3xl scale-110"
           />
           <div className="absolute inset-0 bg-black/60" />
         </motion.div>
@@ -44,11 +46,13 @@ export const BioSlide = ({ content }: { content: SlideContent }) => {
         >
           {content.image ? (
             <div className="relative w-full h-full rounded-4xl md:rounded-[4rem] overflow-hidden border-4 border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.5)] bg-zinc-900">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={content.image}
-                alt={content.title}
-                className="w-full h-full object-contain md:object-cover group-hover:scale-105 transition-transform duration-2000"
+              <Image
+                src={content.image!}
+                alt={content.title!}
+                fill
+                priority
+                sizes="(max-width: 768px) 90vw, 40vw"
+                className="object-contain md:object-cover group-hover:scale-105 transition-transform duration-2000"
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-60" />
 

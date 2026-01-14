@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { SlideContent } from '@/types/story';
 import { useMemo, useRef } from 'react';
+import Image from 'next/image';
 
 export const GallerySlide = ({ content }: { content: SlideContent }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -109,12 +110,12 @@ const MarqueeRow = ({ images, direction, duration, depth }: { images: any[], dir
           key={i}
           className="relative w-32 h-24 sm:w-56 sm:h-40 md:w-100 md:h-72 lg:w-120 lg:h-80 rounded-xl md:rounded-7xl overflow-hidden border border-white/5 shrink-0 shadow-2xl bg-zinc-900"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={img.src}
             alt={img.caption || 'Recuerdo'}
-            loading="lazy"
-            className="w-full h-full object-cover transform scale-105"
+            fill
+            sizes="(max-width: 768px) 50vw, 33vw"
+            className="object-cover transform scale-105"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-40" />
         </div>

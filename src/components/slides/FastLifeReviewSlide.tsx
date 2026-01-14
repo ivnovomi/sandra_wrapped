@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useAnimation } from 'framer-motion';
 import { useEffect, useState, useMemo } from 'react';
+import Image from 'next/image';
 import { SlideContent } from '@/types/story';
 
 export const FastLifeReviewSlide = ({ content }: { content: SlideContent }) => {
@@ -71,14 +72,16 @@ export const FastLifeReviewSlide = ({ content }: { content: SlideContent }) => {
               {masonryItems.map((item) => (
                 <div
                   key={item.id}
-                  className="mb-2 rounded-xl md:rounded-2xl overflow-hidden bg-zinc-900 border border-white/5"
+                  className="relative mb-2 rounded-xl md:rounded-2xl overflow-hidden bg-zinc-900 border border-white/5"
                   style={{ height: `${item.height * 0.7}px` }} // slightly smaller on mobile via multiplier logic if needed
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     src={item.src}
                     alt="Recuerdo rápido"
-                    className="w-full h-full object-cover opacity-50"
+                    fill
+                    sizes="10vw"
+                    quality={50}
+                    className="object-cover opacity-50"
                   />
                 </div>
               ))}
