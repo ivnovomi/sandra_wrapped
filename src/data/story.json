@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "title": "Sandra's Life Wrapped",
+    "beneficiary": "Sandra Dieguez",
+    "occasion": "60 Años de Magia",
+    "date": "2026-01-14",
+    "theme": {
+      "primary": "#FF0055",
+      "secondary": "#00E5FF",
+      "background": "#050505",
+      "text": "#FFFFFF"
+    }
+  },
+  "slides": [
+    {
+      "id": "intro",
+      "type": "intro",
+      "duration": 8000,
+      "content": {
+        "title": "Sandra Wrapped",
+        "subtitle": "Edición Especial",
+        "highlight": "60 Años de Historia"
+      }
+    },
+    {
+      "id": "life_review",
+      "type": "fast_review",
+      "duration": 12000,
+      "content": {
+        "title": "Una Vida en Destellos",
+        "averages": [
+          {
+            "label": "Tu Color",
+            "value": "Rosa Esperanza",
+            "color": "#FF0055"
+          },
+          {
+            "label": "Tu Refugio",
+            "value": "La Arquitectura",
+            "color": "#00E5FF"
+          },
+          {
+            "label": "Tu Superpoder",
+            "value": "Resiliencia",
+            "color": "#FFD700"
+          }
+        ]
+      }
+    },
+    {
+      "id": "birth",
+      "type": "bio",
+      "duration": 15000,
+      "content": {
+        "title": "El Origen",
+        "date": "14 de Enero de 1966",
+        "location": "Buenos Aires, Argentina",
+        "description": "En un cálido verano porteño, el mundo recibió a una mujer destinada a construir no solo edificios, sino hogares y sueños.",
+        "people": [
+          "José",
+          "Alba"
+        ],
+        "icon": "baby",
+        "image": "/details/sandra_little.jpeg",
+        "highlight": "Donde todo empezó"
+      }
+    },
+    {
+      "id": "profession",
+      "type": "stats",
+      "duration": 15000,
+      "content": {
+        "title": "Arquitecta de Almas",
+        "stats": [
+          {
+            "label": "Líneas Trazadas",
+            "value": "Miles"
+          },
+          {
+            "label": "Pasión por el Detalle",
+            "value": "100%"
+          },
+          {
+            "label": "Creatividad",
+            "value": "Infinita"
+          }
+        ],
+        "description": "35 años transformando espacios en escenarios de felicidad."
+      }
+    },
+    {
+      "id": "timeline",
+      "type": "timeline",
+      "duration": 20000,
+      "content": {
+        "title": "Grandes Hitos",
+        "events": [
+          {
+            "year": "1990",
+            "text": "Título de Arquitecta en mano"
+          },
+          {
+            "year": "2005",
+            "text": "Tu primer gran proyecto."
+          },
+          {
+            "year": "2023",
+            "text": "Un nuevo comienzo con Carlos"
+          },
+          {
+            "year": "2026",
+            "text": "¡Celebrando tus 60 años!"
+          }
+        ]
+      }
+    },
+    {
+      "id": "gallery",
+      "type": "gallery",
+      "duration": 15000,
+      "content": {
+        "title": "Tus Tesoros",
+        "images": [
+          {
+            "src": "/p1.jpg",
+            "caption": "Risas compartidas"
+          },
+          {
+            "src": "/p2.jpg",
+            "caption": "Viajes inolvidables"
+          },
+          {
+            "src": "/p3.jpg",
+            "caption": "Tu obra maestra"
+          },
+          {
+            "src": "/p4.jpg",
+            "caption": "El amor hoy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "love",
+      "type": "bio",
+      "duration": 15000,
+      "content": {
+        "title": "El Amor de Hoy",
+        "description": "Porque nunca es tarde para escribir los capítulos más hermosos del libro de la vida.",
+        "people": [
+          "Carlos"
+        ],
+        "icon": "heart",
+        "highlight": "Caminando juntos",
+        "image": "/images/WhatsApp Image 2026-01-14 at 10.43.31 (2).jpeg"
+      }
+    },
+    {
+      "id": "dedications",
+      "type": "dedications",
+      "duration": 20000,
+      "content": {
+        "title": "Tus Personas Favoritas",
+        "videos": [
+          {
+            "url": "/video1.mp4",
+            "author": "Marta & Luis",
+            "message": "¡Felices 60, Sandra! Eres nuestra arquitecta favorita de la vida.",
+            "thumbnail": "/thumb1.jpg",
+            "duration": 6000
+          },
+          {
+            "url": "/video2.mp4",
+            "author": "Elena G.",
+            "message": "Por otros 60 años de risas y proyectos compartidos. ¡Te quiero!",
+            "thumbnail": "/thumb2.jpg",
+            "duration": 7000
+          },
+          {
+            "url": "/video3.mp4",
+            "author": "Sobrinos Dieguez",
+            "message": "¡La tía más canchera del mundo! Un beso gigante.",
+            "thumbnail": "/thumb3.jpg",
+            "duration": 7000
+          }
+        ]
+      }
+    },
+    {
+      "id": "outro",
+      "type": "outro",
+      "duration": 20000,
+      "content": {
+        "title": "¡Feliz Cumple!",
+        "subtitle": "Te amamos por los 60 que pasaron y los más que vendrán.",
+        "cta": "Volver a empezar"
+      }
+    }
+  ]
+}
